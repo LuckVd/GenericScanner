@@ -1,0 +1,99 @@
+# PROJECT.md
+
+> ClaudeDevKit 唯一配置文档 — 项目信息、模块定义、保护规则、开发历史
+
+---
+
+## 项目信息
+
+| 字段 | 值 |
+|------|-----|
+| **名称** | ClaudeDevKit |
+| **类型** | fullstack |
+| **描述** | Claude Code 开发模板套件，提供项目初始化、AI 行为约束、模块治理 |
+
+---
+
+## 模块定义
+
+### 模块状态说明
+
+| Status | 说明 |
+|--------|------|
+| `todo` | 未开始 |
+| `dev` | 开发中 |
+| `done` | 已完成 |
+
+### 模块等级说明
+
+| Level | 含义 | 修改规则 |
+|-------|------|----------|
+| `active` | 活跃开发 | 自由修改 |
+| `stable` | 已稳定 | 需确认 |
+| `core` | 核心保护 | 禁止自动修改 |
+
+### 模块列表
+
+| 模块 | 路径 | Status | Level |
+|------|------|--------|-------|
+| claude-control | `.claude/**` | done | core |
+| governance-specs | `docs/WORKSPACE_SPEC.md`, `docs/api/**` | done | core |
+| project-docs | `docs/*.md`, `README.md` | todo | active |
+| backend-core | `backend/src/core/**` | todo | active |
+| backend-features | `backend/src/features/**` | todo | active |
+| frontend-core | `frontend/src/core/**` | todo | active |
+| frontend-features | `frontend/src/features/**` | todo | active |
+| deployment | `deploy/**` | todo | active |
+
+---
+
+## 保护规则
+
+### 文件保护
+
+```
+Level: core  → 禁止自动修改，需人工降级
+Level: stable → 修改前输出 Stability Modification Proposal，等待确认
+Level: active → 允许自由修改
+```
+
+### API 保护
+
+API 文件变更时：
+- 检测 Breaking Change（参数删除/类型变更/响应结构变化）
+- 稳定 API 变更需确认
+- 自动提示更新 `docs/api/API.md`
+
+### 默认原则
+
+- 未定义的模块默认为 `active`
+- 不确定时默认视为 `stable`
+- AI 不得自动升级 Level（active → stable → core）
+
+---
+
+## 开发历史
+
+> 每次提交后自动追加
+
+| 日期 | Commit | 描述 |
+|------|--------|------|
+| - | - | （暂无提交记录） |
+
+---
+
+## 自动升级规则
+
+提交后自动检测：
+
+1. **模块状态升级建议**
+   - 条件：模块 `dev` + 最近 3 次提交无该模块变动
+   - 动作：建议升级为 `done` + `stable`
+
+2. **API 变更检测**
+   - 条件：检测到 API 文件变更
+   - 动作：提示更新 `docs/api/API.md`
+
+3. **保护文件警告**
+   - 条件：修改 `stable` 或 `core` 文件
+   - 动作：输出提示，等待确认
