@@ -178,7 +178,92 @@ API Change Detected:
 - Remember to update API documentation
 ```
 
-### 9. Push
+### 9. 更新 Git 历史记录
+
+提交成功后，更新 Git 历史文档系统：
+
+#### 9.1 更新 history.md（简洁摘要）
+
+追加一行到 `docs/git/history.md`：
+
+```markdown
+| 2026-02-15 14:30 | a1b2c3d | feat(auth): 实现用户登录 API，支持 JWT 认证 |
+```
+
+**格式要求**：
+- 时间：`YYYY-MM-DD HH:MM`
+- Commit：短 ID（7 位）
+- 简介：不超过 50 字，来源于 commit message 的精简
+
+**操作步骤**：
+1. 读取 `docs/git/history.md`
+2. 移除 `| - | - | （暂无记录） |` 占位行（如存在）
+3. 追加新行到表格末尾
+
+#### 9.2 创建详细日志文件
+
+**路径**: `docs/git/logs/YYYY-MM-DD-HHMM-commitid.md`
+
+**示例**: `docs/git/logs/2026-02-15-1430-a1b2c3d.md`
+
+**内容模板**：
+
+```markdown
+# <commit-id>
+
+## 基本信息
+
+| 字段 | 值 |
+|------|-----|
+| **时间** | <YYYY-MM-DD HH:MM> |
+| **Commit** | <完整 commit hash> |
+| **Message** | <完整 commit message> |
+
+## 简介
+
+<commit message 的中文精简描述>
+
+## 变更文件
+
+| 文件 | 操作 |
+|------|------|
+| `src/auth/login.ts` | 新增 |
+| `src/auth/token.ts` | 修改 |
+| `tests/auth.test.ts` | 删除 |
+
+## API 变更
+
+> 如涉及 API 变更
+
+| 端点 | 操作 | 说明 |
+|------|------|------|
+| `POST /api/login` | 新增 | 用户登录，返回 JWT token |
+
+## 功能变更
+
+| 功能 | 操作 | 说明 |
+|------|------|------|
+| JWT 认证 | 新增 | 支持 token 生成和验证 |
+| 密码验证 | 新增 | bcrypt 密码比对 |
+
+## 关联目标
+
+- 目标：<当前目标描述>
+- 状态：<目标状态>
+```
+
+**信息收集来源**：
+
+| 信息 | 来源 | 用途 |
+|------|------|------|
+| Commit ID | `git rev-parse HEAD` | 日志文件名 + 内容 |
+| Commit Message | `git log -1 --pretty=%B` | 简介 + Message 字段 |
+| 变更文件列表 | `git diff --name-status HEAD~1` | 变更文件表 |
+| API 变更 | api-governor 检测结果 | API 变更表 |
+| 目标信息 | `docs/CURRENT_GOAL.md` | 关联目标 |
+| 时间戳 | 系统时间 | 记录时间 |
+
+### 10. Push
 
 ```
 git push
@@ -287,7 +372,13 @@ git push
 └────────┬─────────┘
          ▼
 ┌──────────────────┐
-│ 9. Push          │
+│ 9. Git History   │
+│ - history.md     │
+│ - logs/详细日志  │
+└────────┬─────────┘
+         ▼
+┌──────────────────┐
+│ 10. Push         │
 └──────────────────┘
 ```
 
@@ -310,6 +401,8 @@ Updated:
 - .claude/PROJECT.md (history)
 - docs/CURRENT_GOAL.md (progress)
 - docs/ROADMAP.md (focus)
+- docs/git/history.md (summary)
+- docs/git/logs/2026-02-15-1430-abc1234.md (detail)
 
 Suggestions:
 - backend-core: consider upgrading to done/stable

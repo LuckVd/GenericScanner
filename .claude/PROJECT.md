@@ -38,6 +38,7 @@
 |------|------|--------|-------|
 | claude-control | `.claude/**` | done | core |
 | governance-specs | `docs/api/**`, `docs/CURRENT_GOAL.md`, `docs/ROADMAP.md` | done | core |
+| git-history | `docs/git/**` | done | stable |
 | project-docs | `docs/*.md`, `README.md` | todo | active |
 | backend-core | `backend/src/core/**` | todo | active |
 | backend-features | `backend/src/features/**` | todo | active |

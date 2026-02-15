@@ -28,7 +28,8 @@
 1. 读取 `.claude/PROJECT.md`
 2. 读取 `docs/ROADMAP.md`
 3. 读取 `docs/CURRENT_GOAL.md`
-4. 输出结构化项目概览
+4. 读取 `docs/git/history.md`
+5. 输出结构化项目概览
 
 ---
 
@@ -147,7 +148,7 @@ Focus on: 实现用户登录 API
 | Modules | PROJECT.md 模块定义 | 路径、状态、保护等级 |
 | Roadmap | docs/ROADMAP.md | 阶段、里程碑、风险 |
 | Current Goal | docs/CURRENT_GOAL.md | 当前短期目标 |
-| Recent History | PROJECT.md 开发历史 | 最近 3 条提交记录 |
+| Recent History | docs/git/history.md | 最近 3 条提交记录 |
 
 ---
 

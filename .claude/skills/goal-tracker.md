@@ -307,7 +307,10 @@ Related Modules:
    └──→ 执行提交 + 更新状态文件
         ├── PROJECT.md (开发历史)
         ├── CURRENT_GOAL.md (进度记录)
-        └── ROADMAP.md (当前焦点)
+        ├── ROADMAP.md (当前焦点)
+        └── docs/git/ (Git 历史记录)
+            ├── history.md (摘要)
+            └── logs/ (详细日志)
 ```
 
 ---

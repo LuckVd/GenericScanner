@@ -272,7 +272,8 @@ Consider:
 4. 生成 Commit Message
 5. 执行 Commit
 6. 更新状态文件 (PROJECT.md / CURRENT_GOAL.md / ROADMAP.md)
-7. Push
+7. 更新 Git 历史记录 (docs/git/history.md + logs/)
+8. Push
 ```
 
 ---
