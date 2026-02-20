@@ -12,6 +12,27 @@
 | **类型** | fullstack |
 | **描述** | Claude Code 开发模板套件，提供项目初始化、AI 行为约束、模块治理 |
 
+### 运行环境约束
+
+| 项目类型 | 约束 |
+|----------|------|
+| **Python + uv** | 优先使用 uv 创建的虚拟环境运行项目 |
+| **检测方式** | 存在 `pyproject.toml` + `.venv/` 或 `uv.lock` 时启用 |
+
+**Python 环境优先级**：
+```
+1. uv 虚拟环境 (.venv/bin/python 或 .venv/Scripts/python.exe)
+2. 系统 Python
+```
+
+**常用命令**：
+```bash
+# 使用 uv 运行
+uv run python <script>
+uv run pytest
+uv run ruff check .
+```
+
 ---
 
 ## 模块定义
