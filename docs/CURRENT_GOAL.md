@@ -8,22 +8,29 @@
 
 | 字段 | 值 |
 |------|-----|
-| **任务** | （用户填写：如"实现用户登录 API"） |
-| **状态** | `in_progress` / `completed` / `blocked` |
-| **优先级** | `high` / `medium` / `low` |
-| **创建日期** | YYYY-MM-DD |
+| **任务** | 搭建任务调度中心基础框架 |
+| **状态** | in_progress |
+| **优先级** | high |
+| **创建日期** | 2026-02-22 |
 
 ---
 
 ## 完成标准
 
-（用户填写：如"登录 API 通过测试，返回正确 token"）
+- [ ] API Gateway 基础框架可运行
+- [ ] 任务管理器实现任务 CRUD
+- [ ] 任务持久化到 MySQL
+- [ ] 与 RabbitMQ 消息队列集成
+- [ ] 基础单元测试通过
 
 ---
 
 ## 关联模块
 
-- `backend-features`（相关模块路径）
+- `scheduler/api_gateway/**`
+- `scheduler/task_manager/**`
+- `scheduler/dispatcher/**`
+- `common/models/**`
 
 ---
 
@@ -31,10 +38,30 @@
 
 | 时间 | 进展 |
 |------|------|
-| - | （自动追加） |
+| 2026-02-22 | 目标已创建，准备开始 Phase 1 开发 |
 
 ---
 
-## 备注
+## 技术要点
 
-（可选：相关背景、依赖、注意事项）
+### API Gateway
+- RESTful 接口设计
+- 身份认证与权限控制
+- 请求路由与负载均衡
+
+### 任务管理器
+- 任务状态机（pending → running → paused → completed → failed）
+- 任务分片（按 IP 段拆分）
+- 断点续扫能力
+
+### 调度器
+- 基于节点负载动态分配
+- 优先级队列支持
+- RabbitMQ 路由键分发
+
+---
+
+## 相关文档
+
+- 详细设计文档：`docs/design/vulnscan-engine-design.md`
+- API 契约：`docs/api/API.md`

@@ -1,6 +1,6 @@
 # PROJECT.md
 
-> ClaudeDevKit 唯一配置文档 — 项目信息、模块定义、保护规则、开发历史
+> VulnScan Engine 唯一配置文档 — 项目信息、模块定义、保护规则、开发历史
 
 ---
 
@@ -8,9 +8,9 @@
 
 | 字段 | 值 |
 |------|-----|
-| **名称** | ClaudeDevKit |
-| **类型** | fullstack |
-| **描述** | Claude Code 开发模板套件，提供项目初始化、AI 行为约束、模块治理 |
+| **名称** | VulnScan Engine |
+| **类型** | backend |
+| **描述** | 企业级分布式漏洞扫描引擎，支持高并发、插件化、智能指纹识别、资产管理与统计追踪 |
 
 ### 运行环境约束
 
@@ -60,11 +60,23 @@ uv run ruff check .
 | claude-control | `.claude/**` | done | core |
 | governance-specs | `docs/api/**`, `docs/CURRENT_GOAL.md`, `docs/ROADMAP.md` | done | core |
 | git-history | `docs/git/**` | done | stable |
-| project-docs | `docs/*.md`, `README.md` | todo | active |
-| src-core | `src/core/**` | todo | active |
-| src-features | `src/features/**` | todo | active |
-
-> 根据实际项目调整模块路径和名称
+| api-gateway | `scheduler/api_gateway/**` | todo | active |
+| task-manager | `scheduler/task_manager/**` | todo | active |
+| dispatcher | `scheduler/dispatcher/**` | todo | active |
+| asset-center | `scheduler/asset_center/**` | todo | active |
+| stats-center | `scheduler/stats_center/**` | todo | active |
+| plugin-repo | `scheduler/plugin_repo/**` | todo | active |
+| config-center | `scheduler/config_center/**` | todo | active |
+| node-manager | `scanner/node_manager/**` | todo | active |
+| auth-manager | `scanner/core_engine/auth_manager/**` | todo | active |
+| fingerprint | `scanner/core_engine/fingerprint/**` | todo | active |
+| vuln-detector | `scanner/core_engine/vuln_detector/**` | todo | active |
+| plugin-loader | `scanner/plugin_loader/**` | todo | active |
+| security | `scanner/security/**` | todo | active |
+| common-models | `common/models/**` | todo | active |
+| common-utils | `common/utils/**` | todo | active |
+| plugins | `plugins/**` | todo | active |
+| tests | `tests/**` | todo | active |
 
 ---
 
@@ -129,3 +141,18 @@ API 文件变更时：
 - 查看目标：`/goal`
 - 设置目标：`/goal set <任务描述>`
 - 标记完成：`/goal done`
+
+---
+
+## 技术栈
+
+| 组件 | 技术 |
+|------|------|
+| 语言 | Python 3.11+ |
+| 异步框架 | asyncio |
+| 消息队列 | RabbitMQ |
+| 数据库 | MySQL |
+| 缓存 | Redis |
+| ORM | SQLAlchemy |
+| API 框架 | FastAPI |
+| 任务调度 | Celery (可选) |
