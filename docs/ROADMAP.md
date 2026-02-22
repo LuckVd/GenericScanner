@@ -80,7 +80,7 @@ VulnScan-Engine/
 
 | 阶段 | 目标 | 状态 | 预计完成 |
 |------|------|------|----------|
-| Phase 1 | 基础架构搭建 - API Gateway、任务管理器、消息队列集成 | todo | - |
+| Phase 1 | 基础架构搭建 - API Gateway、任务管理器、消息队列集成 | done | 2026-02-22 |
 | Phase 2 | 扫描节点核心 - 节点管理器、协程池、心跳机制 | todo | - |
 | Phase 3 | 核心引擎开发 - 认证管理、指纹识别、漏洞检测 | todo | - |
 | Phase 4 | 资产与统计中心 - 资产管理、打标、统计上报 | todo | - |
@@ -109,9 +109,9 @@ VulnScan-Engine/
 
 | 字段 | 值 |
 |------|-----|
-| **阶段** | Phase 1 - 基础架构搭建 |
-| **目标** | 搭建任务调度中心基础框架，实现 API Gateway 和任务管理器 |
-| **重点模块** | `scheduler/api_gateway/**`, `scheduler/task_manager/**` |
+| **阶段** | Phase 2 - 扫描节点核心 |
+| **目标** | 实现扫描节点管理器、协程池、心跳机制 |
+| **重点模块** | `scanner/node_manager/**`, `scanner/core_engine/**` |
 
 ---
 
