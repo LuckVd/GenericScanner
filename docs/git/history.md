@@ -4,6 +4,7 @@
 
 | 时间 | Commit | 简介 |
 |------|--------|------|
+| 2026-02-22 305a494 | test: 实现 Phase 8 测试与优化 |
 | 2026-02-22 8fd41d9 | feat(common): 实现 Phase 7 可观测性模块 |
 | 2026-02-22 fa0b5b4 | feat(scanner): 实现 Phase 6 安全与稳定性模块 |
 | 2026-02-22 46128ce | feat(scanner): 实现 Phase 5 插件体系 |
