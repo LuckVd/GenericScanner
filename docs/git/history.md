@@ -4,6 +4,7 @@
 
 | 时间 | Commit | 简介 |
 |------|--------|------|
+| 2026-02-22 fa0b5b4 | feat(scanner): 实现 Phase 6 安全与稳定性模块 |
 | 2026-02-22 46128ce | feat(scanner): 实现 Phase 5 插件体系 |
 | 2026-02-22 f12fe07 | feat(scheduler): 实现 Phase 4 资产与统计中心 |
 | 2026-02-22 6d1af6e | feat(scanner): 实现 Phase 2 扫描节点核心功能 |
