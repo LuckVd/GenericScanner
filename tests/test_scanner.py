@@ -4,9 +4,9 @@ import asyncio
 
 import pytest
 
-from scanner.coroutine_pool import CoroutinePool
 from scanner.core_engine.fingerprint import Fingerprint, FingerprintEngine
 from scanner.core_engine.vuln_detector import VulnResult
+from scanner.coroutine_pool import CoroutinePool
 
 
 class TestCoroutinePool:

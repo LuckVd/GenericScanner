@@ -2,7 +2,8 @@
 
 import asyncio
 import logging
-from typing import Any, Callable, Coroutine
+from collections.abc import Callable, Coroutine
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
@@ -93,7 +94,7 @@ class CoroutinePool:
                     asyncio.gather(*self._tasks, return_exceptions=True),
                     timeout=timeout,
                 )
-            except asyncio.TimeoutError:
+            except TimeoutError:
                 # Cancel remaining tasks
                 for task in self._tasks:
                     task.cancel()

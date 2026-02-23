@@ -5,9 +5,10 @@ import importlib.util
 import json
 import logging
 import os
+from collections.abc import Callable
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
 
 from common.models.stat import StatRecord
 from common.utils.config import get_settings
@@ -242,7 +243,7 @@ class VulnDetector:
                 except Exception as e:
                     logger.debug(f"Cleanup failed: {e}")
 
-            except asyncio.TimeoutError:
+            except TimeoutError:
                 status = "timeout"
                 results.append(VulnResult(
                     vuln_id=case_id,

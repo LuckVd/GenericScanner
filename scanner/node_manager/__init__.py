@@ -3,8 +3,8 @@
 import asyncio
 import logging
 import uuid
+from collections.abc import Callable
 from datetime import datetime
-from typing import Callable
 
 import aio_pika
 import psutil
